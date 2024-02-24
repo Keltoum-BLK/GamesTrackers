@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="23A344" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ConsoleGame" representedClassName="ConsoleGame" syncable="YES">
+        <attribute name="platformImage" optional="YES" attributeType="Binary"/>
+        <attribute name="platformName" optional="YES" attributeType="String"/>
+        <relationship name="platformGames" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="itembyPlatform" inverseEntity="Item"/>
+        <relationship name="platformOrder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="orderbyPlatform" inverseEntity="Order"/>
+    </entity>
+    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
+        <attribute name="backgroundImage" optional="YES" attributeType="Binary"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="platform" optional="YES" attributeType="String"/>
+        <attribute name="rating" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="release_date" optional="YES" attributeType="String"/>
+        <relationship name="itembyPlatform" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ConsoleGame" inverseName="platformGames" inverseEntity="ConsoleGame"/>
+    </entity>
+    <entity name="Order" representedClassName="Order" syncable="YES" codeGenerationType="class">
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="platform" optional="YES" attributeType="String"/>
+        <attribute name="rate" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="release_date" optional="YES" attributeType="String"/>
+        <relationship name="orderbyPlatform" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ConsoleGame" inverseName="platformOrder" inverseEntity="ConsoleGame"/>
+    </entity>
+</model>
